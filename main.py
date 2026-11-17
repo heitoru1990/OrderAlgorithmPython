@@ -23,6 +23,8 @@ def main():
     CRITICAL_TIME = 600
     ELEVATED_TIME = 480
 
+    DEFAULT_ESTIMATED_TIME = 10
+
     if(len(orders) <= 0):
         print("Não existem dados sobre qualquer pedido, por favor adicione pedidos novos!")
         return
@@ -38,6 +40,9 @@ def main():
 
         if(order["Priority"] < 3):
             totalUrgentOrders += 1
+
+        if(order["TimeEstimated"] <= 0):
+            order["TimeEstimated"] = DEFAULT_ESTIMATED_TIME
 
         estimated_time = order["TimeEstimated"]
         totalTimeEstimated += estimated_time
