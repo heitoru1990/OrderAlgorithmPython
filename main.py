@@ -38,11 +38,11 @@ def main():
         if(order["Priority"] > 5):
             order["Priority"] = 5
 
-        if(order["Priority"] < 3):
-            totalUrgentOrders += 1
-
         if(order["TimeEstimated"] <= 0):
             order["TimeEstimated"] = DEFAULT_ESTIMATED_TIME
+
+        if(order["Priority"] < 3):
+            totalUrgentOrders += 1
 
         estimated_time = order["TimeEstimated"]
         totalTimeEstimated += estimated_time
